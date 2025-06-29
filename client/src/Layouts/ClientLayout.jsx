@@ -49,7 +49,7 @@ const ClientLayout = () => {
 
       {/* Sidebar */}
       <nav
-        className={`fixed md:relative z-30 bg-gradient-to-b from-blue-900 to-blue-800 text-white w-64 md:w-64 transition-transform transform ${
+        className={`fixed md:relative z-30 bg-gradient-to-b from-blue-900 to-blue-800 text-white w-64 md:w-64 transition-transform transform min-h-screen ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:flex flex-col h-full shadow-xl`}
       >
