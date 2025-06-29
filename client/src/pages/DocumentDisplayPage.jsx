@@ -206,7 +206,7 @@ const DocumentDisplayPage = () => {
               {filteredDocuments.length > 0 ? (
                 filteredDocuments.map((file) => (
                   <tr key={file._id}>
-                    <td className="px-4 py-3">{file.fileName}</td>
+                    <td className="px-4 py-3">{file.name}</td>
                     <td className="px-4 py-3">
                       <div className="flex flex-wrap gap-2">
                         <button

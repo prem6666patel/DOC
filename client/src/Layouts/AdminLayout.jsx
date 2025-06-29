@@ -20,6 +20,7 @@ const AdminLayout = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  console.log("currentUser : ", currentUser);
 
   useEffect(() => {
     const handleResize = () => {
@@ -72,10 +73,10 @@ const AdminLayout = () => {
         </button>
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-sm font-bold">
-            {currentUser?.username?.charAt(0)?.toUpperCase() || "A"}
+            {currentUser?.name?.charAt(0)?.toUpperCase() || "A"}
           </div>
           <span className="font-medium">
-            {currentUser?.username || "Admin"}
+            {currentUser?.name || "Admin"}
           </span>
         </div>
       </header>
@@ -90,11 +91,11 @@ const AdminLayout = () => {
         <div className="p-5 border-b border-blue-700">
           <div className="flex items-center space-x-3 mb-4">
             <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center text-xl font-bold">
-              {currentUser?.username?.charAt(0)?.toUpperCase() || "A"}
+              {currentUser?.name?.charAt(0)?.toUpperCase() || "A"}
             </div>
             <div>
               <h3 className="font-semibold text-lg">
-                {currentUser?.username || "Administrator"}
+                {currentUser?.name || "Administrator"}
               </h3>
               <p className="text-blue-200 text-sm">
                 {currentUser?.role || "Admin"}

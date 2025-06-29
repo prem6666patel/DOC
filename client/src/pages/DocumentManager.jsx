@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../provider/GlobalProvider";
 
 const api = axios.create({
   baseURL: "http://localhost:5000",
@@ -14,6 +15,8 @@ const api = axios.create({
 });
 
 const DocumentManager = () => {
+  const { getfiles } = useGlobalContext();
+
   const navigate = useNavigate();
   const [userData, setUserData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,6 +26,7 @@ const DocumentManager = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const allClients = useSelector((state) => state.files.allFiles);
+  console.log("allClients : ", allClients);
 
   useEffect(() => {
     if (allClients?.length > 0) {
@@ -36,24 +40,15 @@ const DocumentManager = () => {
       setFilteredDocuments(userData);
     } else {
       const filtered = userData.filter((file) =>
-        file.fileName?.toLowerCase().includes(searchTerm.toLowerCase())
+        (
+          file.name?.toLowerCase() +
+          " " +
+          file.userId?.name?.toLowerCase()
+        ).includes(searchTerm.toLowerCase())
       );
       setFilteredDocuments(filtered);
     }
   }, [searchTerm, userData]);
-
-  const fetchClientData = async () => {
-    try {
-      const response = await api.get("/file/all");
-      if (response.data.success) {
-        setUserData(response.data.files);
-        setFilteredDocuments(response.data.files);
-      }
-    } catch (error) {
-      console.error("Error fetching files:", error);
-      toast.error("Failed to fetch files");
-    }
-  };
 
   const handleDeleteClick = (fileId) => {
     setFileToDelete(fileId);
@@ -66,7 +61,7 @@ const DocumentManager = () => {
       const response = await api.delete(`/file/delete/${fileToDelete}`);
       if (response.data.success) {
         toast.success(response.data.message);
-        fetchClientData();
+        getfiles();
       } else {
         toast.error(response.data.message || "Something went wrong");
       }
@@ -197,7 +192,7 @@ const DocumentManager = () => {
             </div>
             <input
               type="text"
-              placeholder="Search by file name..."
+              placeholder="Search by file name or client name ..."
               className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
