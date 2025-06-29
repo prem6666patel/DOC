@@ -3,14 +3,14 @@
   "name": "DOC",
   "builds": [
     {
-      "src": "server/server.js",
+      "src": "server/api.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server/server.js"
+      "dest": "server/api.js"
     }
   ]
 }
