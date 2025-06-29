@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // or your frontend domain on Vercel
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -28,7 +28,10 @@ app.use("/file", fileRouter);
 app.use("/user", userRouter);
 app.use("/consultation", consultationRouter);
 
-// Ensure DB is connected (don't await here — Vercel handles serverless lifecycle)
-connectDB();
+const PORT = process.env.PORT || 5000;
 
-export default app;
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log("Server is running at", PORT);
+  });
+});
