@@ -37,3 +37,16 @@ DOC is a full-stack web application built using the MERN stack , designed specif
 
 
 ![image](https://github.com/user-attachments/assets/7345ed78-ba2b-42b6-9810-5b91615f50e2)
+
+
+
+![image](https://github.com/user-attachments/assets/f2df70b8-683a-4d6b-a809-10903bb2e9ba)
+
+
+![image](https://github.com/user-attachments/assets/e452fa57-7aaf-4f92-a9f8-3ed2e8adc217)
+
+
+![image](https://github.com/user-attachments/assets/7032b097-27ba-43ad-89d0-acec38d23992)
+
+
+![image](https://github.com/user-attachments/assets/6cbd55db-deb0-4b29-98a1-402e4d6553f6)
