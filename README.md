@@ -33,3 +33,7 @@ DOC is a full-stack web application built using the MERN stack , designed specif
 | File Upload | Multer, Base64 Encoding    |
 | State Mgmt  | Redux Toolkit              |
 -------------------------------------------
+
+
+
+![image](https://github.com/user-attachments/assets/7345ed78-ba2b-42b6-9810-5b91615f50e2)
