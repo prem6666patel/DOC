@@ -28,11 +28,6 @@ app.use("/file", fileRouter);
 app.use("/user", userRouter);
 app.use("/consultation", consultationRouter);
 
-app.get("/", (req, res) => {
-  res.send("✅ API Backend is Live on Vercel");
-});
-
-
 const PORT = process.env.PORT || 5000;
 
 connectDB().then(() => {
