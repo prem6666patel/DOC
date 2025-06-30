@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/auth/(.*)", "dest": "server/server.js" },
+    { "src": "/file/(.*)", "dest": "server/server.js" },
+    { "src": "/user/(.*)", "dest": "server/server.js" },
+    { "src": "/consultation/(.*)", "dest": "server/server.js" },
+    { "src": "/health", "dest": "server/server.js", "methods": ["GET"] }
+  ]
+}
